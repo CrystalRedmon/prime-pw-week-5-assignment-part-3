@@ -25,3 +25,12 @@ console.log(addToCollection("Tom Misch", "Beyond the Groove", 2016));
 console.log(addToCollection("Marvin Gaye", "What's Going On", 1971));
 
 console.log(collection);
+
+function showCollection(array){
+    console.log(array.length);
+    for (let album of array){
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
+    }
+}
+
+showCollection(collection);
