@@ -11,5 +11,17 @@ function addToCollection(title, artist, yearPublished){
     return newRecord;
 }
 
-addToCollection("Blah", "Gwen", "2012");
+
+console.log(addToCollection("Jill Scott", "Who is Jill Scott? Words and Sound, Vol. 1", 2000));
+
+console.log(addToCollection("Jill Scott", "Beautifully Human: Words and Sounds, Vol. 2", 2004));
+
+console.log(addToCollection("Kanye West", "College Dropout", 2004));
+
+console.log(addToCollection("Gil Scot-Heron", "Pieces of a Man", 1971));
+
+console.log(addToCollection("Tom Misch", "Beyond the Groove", 2016));
+
+console.log(addToCollection("Marvin Gaye", "What's Going On", 1971));
+
 console.log(collection);
