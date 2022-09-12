@@ -48,3 +48,21 @@ function findByArtist(artist){
 console.log(findByArtist("Kanye West"))
 console.log(findByArtist("Tom Hanks"));
 
+
+function search(artist, year){
+    if(!artist || !year){
+        return collection; 
+    }
+    let matchedCriteria =[]
+for( let album of collection ){
+    if(artist === album.artist && year === album.yearPublished){
+        matchedCriteria.push(album);
+    }return matchedCriteria;
+}
+};
+
+console.log(search("Kanye West", 2004))
+console.log(search("Jill Scott", 2005));
+console.log(search("Tom Hanks"))
+console.log(search());
+                              
