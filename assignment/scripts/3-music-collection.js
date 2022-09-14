@@ -24,6 +24,9 @@ console.log(addToCollection( "Beyond the Groove", "Tom Misch", 2016));
 
 console.log(addToCollection( "What's Going On", "Marvin Gaye", 1971));
 
+console.log(addToCollection( "Hey Now", "Me", 1971));
+
+
 console.log(collection);
 
 function showCollection(array){
@@ -40,14 +43,21 @@ function findByArtist(artist){
     let matchingArtist = [];
     for(let album of collection){
         if(album.artist === artist){
+            console.log("Add", album, "to the collection")
             matchingArtist.push(album);
         }
-    }return matchingArtist;
+    }console.log("No matching albums")
+    return matchingArtist;
 };
 
+findByArtist("Kanye West")
 console.log(findByArtist("Kanye West"))
+findByArtist("Tom Hanks")
 console.log(findByArtist("Tom Hanks"));
 
+
+
+console.log("////////Stretch Goals////////")
 
 function search(artist, year){
     if(!artist || !year){
@@ -55,14 +65,16 @@ function search(artist, year){
     }
     let matchedCriteria =[]
 for( let album of collection ){
-    if(artist === album.artist && year === album.yearPublished){
+    if(album.artist === artist && album.yearPublished === year){
         matchedCriteria.push(album);
-    }return matchedCriteria;
-}
+        
+    }
+}return matchedCriteria;
 };
 
-console.log(search("Kanye West", 2004))
-console.log(search("Jill Scott", 2005));
-console.log(search("Tom Hanks"))
-console.log(search());
+console.log("Expect album:", search("Kanye West", 2004))
+console.log("Expect empty array:", search("Jill Scott", 2005));
+console.log("Expect collection:", search("Jill Scott"));
+console.log("Expect collection:", search("Tom Hanks"))
+console.log("Expect collection:", search());
                               
