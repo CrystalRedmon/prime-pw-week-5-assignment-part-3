@@ -14,8 +14,6 @@ function addToCollection(title, artist, yearPublished, tracks){
 
 
 
-
-
 console.log(addToCollection( "Who is Jill Scott? Words and Sound, Vol. 1", "Jill Scott", 2000, [{'He Loves Me': '4:36' }]));
 console.log(addToCollection( "Beautifully Human: Words and Sounds, Vol. 2", "Jill Scott", 2004, [{'Golden': '3:54'}, {'The Fact Is': '4:38'}]));
 console.log(addToCollection( "College Dropout", "Kanye West", 2004, [{'Never Let Me Down': '5:24'}, {'Spaceship':'5:24'}]));
@@ -26,8 +24,6 @@ console.log(addToCollection( "Hey Now", "Me", 1971));
 console.log(collection);
 
 
-//How to access tracks
-console.log(collection[1].tracks)
 
 
 
@@ -71,17 +67,24 @@ findByArtist("Tom Hanks")
 
 console.log("////////Stretch Goals////////")
 
+//How to access tracks
+//collection[i].tracks[0][i]
+//console.log(collection[i].tracks[0][i])
+//Must go down 4 levels
+
 function search(searchBy){
-    
     if(!searchBy){
         return collection; 
     }
     let matchedCriteria =[]
 for( let album of collection ){
-    if(album.artist === searchBy.artist && album.yearPublished === searchBy.year && album.tracks === searchBy.tracks){
-        matchedCriteria.push(album);
+    
+    if(album.artist === searchBy.artist && album.yearPublished === searchBy.year){
+
         
-    }///////How to access nested object, tracks. Code works if search for tracks is excluded.
+    }
+
+
 }return matchedCriteria;
 };
 
@@ -92,5 +95,10 @@ console.log("Expect empty array", search({ artist: 'Jill Scott' }));
 console.log("Expect empty array:", search({ }));
 console.log("Expect collection:", search());
 console.log("Expect album:", search({ artist: 'Kanye West', year: 2004 }));
-///How to search for tracks                           
 
+
+                        
+console.log(collection[2].tracks[0]); ///This is how to access the tracks array. Must iterate through this to find key name that matches the song criteria. 
+
+//matchedCriteria.push(album); 
+//&& album.tracks === searchBy.tracks
