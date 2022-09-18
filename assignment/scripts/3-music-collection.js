@@ -25,7 +25,7 @@ console.log(collection);
 
 
 
-
+/*
 
 function showCollection(array){
     console.log(array.length);
@@ -63,42 +63,60 @@ console.log("Expect empty array:", findByArtist("Tom Hanks"));
 findByArtist("Tom Hanks")
 
 
-
+*/
 
 console.log("////////Stretch Goals////////")
 
 //How to access tracks
 //collection[i].tracks[0][i]
-//console.log(collection[i].tracks[0][i])
+
+console.log(collection[2].tracks[0][0])
+console.log('Spaceship' in collection[2].tracks[0][1])///////On the right track, replace 1 with i
+//('Spaceship' in collection[2].tracks[0][1])
 //Must go down 4 levels
+
+
+
 
 function search(searchBy){
     if(!searchBy){
         return collection; 
     }
-    let matchedCriteria =[]
-for( let album of collection ){
-    
-    if(album.artist === searchBy.artist && album.yearPublished === searchBy.year){
-
-        
+    let matchedCriteria =[];
+for( let i=0; i<collection.length; i++){
+    if(collection[i].artist === searchBy.artist && collection[i].yearPublished === searchBy.year){
+        for(let j=0; j < collection[i].tracks[0].length; j++){
+            if(collection[i].tracks[0][j].hasOwnProperty(searchBy.tracks)){
+            console.log('it works')
+            matchedCriteria.push(collection[i])
+            }
+        }
     }
-
-
-}return matchedCriteria;
+}return matchedCriteria
 };
 
 
-console.log("Expect album:", search({ artist: 'Kanye West', year: 2004, tracks:{'Never Let Me Down': '5:24'}}));
-console.log("Expect empty array:", search({ artist: 'Jill Scott', year: 2005 }));
-console.log("Expect empty array", search({ artist: 'Jill Scott' }));
-console.log("Expect empty array:", search({ }));
-console.log("Expect collection:", search());
-console.log("Expect album:", search({ artist: 'Kanye West', year: 2004 }));
+console.log("Expect album:", search({ artist: 'Kanye West', year: 2004, tracks:'Never Let Me Down'}));//matching *all* of the search criteria, result array
+console.log("Expect album:", search({ artist: 'Jill Scott', year: 2004, tracks:'The Fact Is'}));//matching *all* of the search criteria, result array
+console.log("Expect album:", search({ artist: 'Marvin Gaye', year: 1971, tracks:"What's Going On"}));//matching *all* of the search criteria, result array
+console.log("Expect empty array:", search({ artist: 'Jill Scott', year: 2005 })); //If no results are found, return an empty array.
+console.log("Expect empty array", search({ artist: 'Jill Scott' }));//If no results are found, return an empty array.
+console.log("Expect collection:", search({ })); ///Empty search object, return collection
+console.log("Expect collection:", search());//No search object, return collection
+
 
 
                         
-console.log(collection[2].tracks[0]); ///This is how to access the tracks array. Must iterate through this to find key name that matches the song criteria. 
+//console.log(collection[2].tracks[0]); 
+///This is how to access the tracks array. Must iterate through this to find key name that matches the song criteria. 
 
 //matchedCriteria.push(album); 
 //&& album.tracks === searchBy.tracks
+
+
+
+
+
+
+
+
